@@ -4,7 +4,7 @@
         {
             "src": "houserAssignment/wsgi.py",
             "use": "@vercel/python",
-            "config": { "maxLambdaSize": "50mb", "runtime": "python3.6" }
+            "config": { "maxLambdaSize": "50mb", "runtime": "python3.9" }
         },
         {
             "src": "build_file.sh",
@@ -15,6 +15,11 @@
         }
 ],
     "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+
         {
             "src": "/(.*)",
             "dest": "houserAssignment/wsgi.py"
